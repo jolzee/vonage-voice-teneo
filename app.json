@@ -1,16 +1,17 @@
 {
-    "name": "nexmo-voice-teneo",
-    "description": "A Teneo bot connector for Nexmo Voice.",
+    "name": "vonage-voice-teneo",
+    "description": "A Teneo bot connector for Vonage Voice.",
     "keywords": [
         "bot",
         "Nexmo",
+        "Vonage",
         "Teneo",
         "Voice"
     ],
-    "repository": "https://github.com/pomegran/nexmo-voice-teneo",
+    "repository": "https://github.com/pomegran/vonage-voice-teneo",
     "env": {
-        "WEBHOOK_FOR_NEXMO": {
-            "description": "Webhook for Nexmo Voice i.e. the server it will send messages to i.e. external address for server this application runs on",
+        "WEBHOOK_FOR_VONAGE": {
+            "description": "Webhook for Vonage Voice i.e. the server it will send messages to i.e. external address for server this application runs on",
             "required":true
         },
         "PATH_TO_ANSWER": {
@@ -26,11 +27,11 @@
             "required":true
         }, 
         "LANGUAGE_ASR": {
-            "description": "Please enter your Nexmo Language for voice recognition (ASR).  Defaults to 'en-GB'.  List is here: https://developer.nexmo.com/voice/voice-api/guides/asr#language",
+            "description": "Please enter your Vonage Language for voice recognition (ASR).  Defaults to 'en-GB'.  List is here: https://developer.nexmo.com/voice/voice-api/guides/asr#language",
             "required":false
         },        
         "VOICENAME": {
-            "description": "Please enter your Nemo Language for spoken voice (TTS).  Defaults to 'Amy'.  List here: https://developer.nexmo.com/voice/voice-api/guides/text-to-speech#voice-names",
+            "description": "Please enter your Vonage Language for spoken voice (TTS).  Defaults to 'Amy'.  List here: https://developer.nexmo.com/voice/voice-api/guides/text-to-speech#voice-names",
             "required":false
         }        
     }

@@ -21,7 +21,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 const {
-  WEBHOOK_FOR_NEXMO,
+  WEBHOOK_FOR_VONAGE,
   PATH_TO_ANSWER,
   TENEO_ENGINE_URL,
   LANGUAGE_ASR,
@@ -47,11 +47,11 @@ const router = express.Router()
 // Tell express to use this router with /api before.
 app.use("/", router);
 
-// Nexmo message comes in
-router.post(pathToAnswer, handleNexmoMessages(sessionHandler));
+// Vonage message comes in
+router.post(pathToAnswer, handleVonageMessages(sessionHandler));
 
-// handle incoming twilio message
-function handleNexmoMessages(sessionHandler) {
+// Handle incoming twilio message
+function handleVonageMessages(sessionHandler) {
 
 	return (req, res) => {
 
@@ -79,21 +79,21 @@ function handleNexmoMessages(sessionHandler) {
 			console.log(`userInput: ${userInput}`);
 
 			// send input to engine using stored sessionid and retreive response
-			const teneoResponse = await teneoApi.sendInput(teneoSessionId, { 'text': userInput, 'channel': 'nexmo_voice' });
+			const teneoResponse = await teneoApi.sendInput(teneoSessionId, { 'text': userInput, 'channel': 'vonage_voice' });
 			console.log(`teneoResponse: ${teneoResponse.output.text}`)
 
 			// store engine sessionid for this caller
 			sessionHandler.setSession(conversation_uuid, teneoResponse.sessionId);
 
-			// prepare message to return to Nexmo
-			sendNexmoMessage(teneoResponse, post, res);
+			// prepare message to return to Vonage
+			sendVonageMessage(teneoResponse, post, res);
 
 		});
 	}
 }
 
 
-function sendNexmoMessage(teneoResponse, post, res) {
+function sendVonageMessage(teneoResponse, post, res) {
 
 	const ncco =
 	[
@@ -112,7 +112,7 @@ function sendNexmoMessage(teneoResponse, post, res) {
 					"uuid": [post.uuid],
 					"endOnSilence": 1
 				},
-			"eventUrl": [WEBHOOK_FOR_NEXMO+pathToAnswer]
+			"eventUrl": [WEBHOOK_FOR_VONAGE+pathToAnswer]
 		}
 
 	];
@@ -127,7 +127,7 @@ function sendNexmoMessage(teneoResponse, post, res) {
  ***/
 function SessionHandler() {
 
-	// Map the Nexmo Conversation UUID to the teneo engine session id.
+	// Map the Vonage Conversation UUID to the teneo engine session id.
 	// This code keeps the map in memory, which is ok for testing purposes
 	// For production usage it is advised to make use of more resilient storage mechanisms like redis
 	const sessionMap = new Map();
