@@ -15,5 +15,5 @@ These are not required but can also be set:
 
 ## Setting up Vonage
 
-1. Create an application: https://dashboard.nexmo.com/applications.  Ensure you enable "Voice" for your option then set "voice event url" to the endpoint for this application and the "Answer URL" to <endpoint for this application>+<PATH_TO_ANSWER>.  N.B. PATH_TO_ANSWER defaults to "/webhooks/answer". 
+1. Create an application: https://dashboard.nexmo.com/applications.  Ensure you enable "Voice" for your option then set "Event URL" to the endpoint for this application and the "Answer URL" to <endpoint for this application>+<PATH_TO_ANSWER>.  N.B. PATH_TO_ANSWER defaults to "/webhooks/answer". 
 2. Add a number: https://dashboard.nexmo.com/your-numbers.  Link the application created in step 1 to this number
