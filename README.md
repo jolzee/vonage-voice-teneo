@@ -7,6 +7,7 @@ Click the button below to deploy the connector to Heroku:
 In the 'Config Vars' section, add the following (required):
 * **TENEO_ENGINE_URL:** The engine url
 * **WEBHOOK_FOR_VONAGE:** Endpoint for deployed application e.g. https://heroku-vonage-voice-teneo.herokuapp.com/
+
 These are not required but can also be set:
 * **LANGUAGE_ASR:** Language to ASR, defaults to en-GB if not specified
 * **VOICENAME:** Voice for TTS.  Defaults to 'Amy', go to https://developer.nexmo.com/voice/voice-api/guides/text-to-speech
