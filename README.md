@@ -6,7 +6,7 @@ Click the button below to deploy the connector to Heroku:
 
 In the 'Config Vars' section, add the following (required):
 * **TENEO_ENGINE_URL:** The engine url
-* **WEBHOOK_FOR_VONAGE:** Endpoint for deployed application e.g. https://heroku-vonage-voice-teneo.herokuapp.com.  Please note DO NOT add a '/' to the end of this URL
+* **WEBHOOK_FOR_VONAGE:** Endpoint for deployed application e.g. https://vonage-voice-teneo.herokuapp.com.  Please note DO NOT add a '/' to the end of this URL
 
 These are not required but can also be set:
 * **LANGUAGE_ASR:** Language to ASR, defaults to en-GB if not specified
